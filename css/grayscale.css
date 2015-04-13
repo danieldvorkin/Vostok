@@ -168,6 +168,7 @@ a:focus {
     font-size: 18px;
 }
 
+
 .body-text {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -374,6 +375,10 @@ img::selection {
 
 img::-moz-selection {
     background: 0 0;
+}
+
+#img {
+    max-width: 60%;
 }
 
 body {
