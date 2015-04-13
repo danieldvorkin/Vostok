@@ -172,6 +172,11 @@ a:focus {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+#small-print {
+    font-style: italic;
+    font-size: 10px;
+}
+
 @media(min-width:767px) {
     .intro {
         height: 100%;
