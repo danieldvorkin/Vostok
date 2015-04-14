@@ -54,6 +54,9 @@ a {
 .black-font {
     color: black;
     list-style-type: none;
+    list-style-position: center;
+    font-size: 14px;
+    padding-left: 0;
 }
 .white-font {
     color: white;
