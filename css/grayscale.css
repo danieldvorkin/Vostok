@@ -377,7 +377,7 @@ img::-moz-selection {
     background: 0 0;
 }
 
-#img, .iframe {
+#img {
     max-width: 60%;
 }
 
