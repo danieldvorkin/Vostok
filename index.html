@@ -12,6 +12,7 @@
 <title>Vostok Productions</title>
 
 <!-- Bootstrap Core CSS -->
+<script src="js/bootstrap.min.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
@@ -19,8 +20,29 @@
 
 <!-- Custom Fonts -->
 <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<script>
+        $(document).ready(function () {
+            $("input#submit").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "process.php", // 
+                    data: $('form.contact').serialize(),
+                    success: function(msg){
+                        $("#contact").html(msg)
+                        $("#contact").modal('hide');   
+                    },
+                    error: function(){
+                        alert("failure");
+                    }
+                });
+            });
+        });
+    </script>
+
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +86,7 @@
                     <a class="page-scroll" href="#equipment">Equipment</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
+                    <a class="page-scroll" href="#getInTouch">Contact</a>
                 </li>
             </ul>
         </div>
@@ -101,8 +123,12 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <h2>About V<i class="fa fa-play-circle"></i>STOK</h2>
-            <p class="body-text">Having professional cameras is not always enough. We bring years of knowledge and customer satisfaction into every video we produce.</p>
-            <p class="body-text">From professional videographers to editoers and colorist, we make your final video a work of art.</p>
+            <p class="body-text">
+                Having professional cameras is not always enough. We bring years of knowledge and customer satisfaction into every video we produce.
+            </p>
+            <p class="body-text">
+                From professional videographers to editoers and colorist, we make your final video a work of art.
+            </p>
         </div>
     </div>
 </section>
@@ -119,8 +145,7 @@
                 <!-- Facebook Link -->
                 <a href="https://www.facebook.com/vostokproductions" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-facebook-square"></i> Facebook</a><hr class="small-line">
                 <!-- Instagram Link -->
-                <a href="https://instagram.com/vostokproductions" target="_blank" class="btn btn-default bt-lg"><i class="fa fa-instagram"></i> Instagram</a><hr class="small-line">
-            
+                <a href="https://instagram.com/vostokproductions" target="_blank" class="btn btn-default bt-lg"><i class="fa fa-instagram"></i> Instagram</a>
             </div>
         </div>
     </div>
@@ -235,23 +260,27 @@
 </section>
 
 <!-- Contact Section -->
-<section id="contact"class="container content-section text-center">
+<section id="getInTouch" class="container content-section text-center">
     <div class="row">
         <div class="white-font" class="col-lg-8 col-lg-offset-2">
             <h2>Contact v<i class="fa fa-play-circle"></i>stok Productions</h2>
             <p>Feel free to email us to for a more personalized quote.</p>
-            <p><a href="mailto:vostokproductions@gmail.com" class="btn btn-default btn-lg">Email Us<i class="fa fa-envelope-o fa-fw"></i></a></p>
-            <ul class="list-inline banner-social-buttons">
-                <li>
-                    <a href="https://www.youtube.com/channel/UCwRVFlFxUTdOeeE8CxLdUcQ" class="btn btn-default btn-lg"><i class="fa fa-youtube-square fa-fw"></i> <span class="network-name">YouTube</span></a>
-                </li>
-                <li>
-                    <a href="https://instagram.com/vostokproductions/" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/vostokofficial" class="btn btn-default btn-lg"><i class="fa fa-twitter-square fa-fw"></i> <span class="network-name">Twitter</span></a>
-                </li>
-            </ul>
+        <div>
+            <p>
+                <a href="#contact" data-toggle="modal" class="btn btn-default btn-lg">Email</a>
+            </p>
+        </div>
+        <ul class="list-inline banner-social-buttons">
+            <li>
+                <a href="https://www.youtube.com/channel/UCwRVFlFxUTdOeeE8CxLdUcQ" class="btn btn-default btn-lg"><i class="fa fa-youtube-square fa-fw"></i> <span class="network-name">YouTube</span></a>
+            </li>
+            <li>
+                <a href="https://instagram.com/vostokproductions/" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/vostokofficial" class="btn btn-default btn-lg"><i class="fa fa-twitter-square fa-fw"></i> <span class="network-name">Twitter</span></a>
+            </li>
+        </ul>
         </div>
     </div>
 </section>
@@ -262,6 +291,42 @@
         <p id="small-print">Built using Bootstrap Framework</p>
     </div>
 </footer>
+
+<div class="modal fade" id="contact" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class="form-horizontal" role="form">
+                    <div class="modal-header">
+                        <h4>Contact</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="contact-name" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="contact-name" placeholder="Place name here"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email" class="col-sm-2 control-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="contact-email" placeholder="example@domain.com"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message" class="col-sm-2 control-label">Message</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" data-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn-primary">Send Email</button>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
 
 <!-- jQuery Version 1.11.0 -->
 <script src="js/jquery-1.11.0.js"></script>
