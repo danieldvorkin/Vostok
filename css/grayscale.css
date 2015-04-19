@@ -297,7 +297,7 @@ a:focus {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        padding-top: 100px;
     }
 
     .download-section {
@@ -392,4 +392,15 @@ body {
 }
 .small-line {
     width: 40px;
+}
+
+.med-line {
+    width: 340px;
+}
+
+.lg-line {
+    width: 500px;
+}
+.main-vid {
+    max-width: 80%;
 }
